@@ -1,0 +1,56 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-3.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>My first templates with Thymeleaf</title>
+</head>
+<body>
+<!--<p th:text="${name}">A Random Name</p>
+
+<th:block th:each="name1 : ${names}">
+    <tr>
+        <td ${name1}>...</td>
+    </tr>
+</th:block>-->
+
+
+<h3>Nueva Solicitud de <span th:text="${purchase.owner.firstName}"></span> <span th:text="${purchase.owner.lastName}"></span></h3>
+<p>Datos del Cliente</p>
+<ul>
+    <li>Nombre: <span th:text="${purchase.owner.firstName}"></span></li>
+    <li>Apellido: <span th:text="${purchase.owner.lastName}"></span></li>
+    <li>CUIT: <span th:text="${purchase.owner.cuit}"></span></li>
+    <li>Email: <span th:text="${purchase.owner.email}"></span></li>
+    <li>Fecha de nacimiento: <span th:text="${purchase.owner.birthdate}"></span></li>
+</ul>
+<p>
+    Datos de la solicitud:
+</p>
+<table border="solid">
+    <tr>
+        <th>Item Nro</th>
+        <th>Tipo de producto</th>
+        <th>Producto</th>
+        <th>Alto</th>
+        <th>Ancho</th>
+        <th>Cantidad</th>
+        <th>Costo</th>
+    </tr>
+    <th:block th:each="item : ${purchase.items}">
+        <tr>
+            <td th:text="${item.id}">Item Nro</td>
+            <td th:text="${item.product.category.name}">Tipo de producto</td>
+            <td th:text="${item.product.name}">Producto</td>
+            <td th:text="${item.product.height}">Alto</td>
+            <td th:text="${item.product.width}">Ancho</td>
+            <td th:text="${item.amount}">Cantidad</td>
+            <td th:text="${item.amount * item.product.price}">Costo</td>
+        </tr>
+    </th:block>
+</table>
+<p>
+    El costo total de la cotizacion es $<span th:text="${purchase.total}">..</span>.
+    Los diseños de cada producto se encuentran adjuntos identificados con el Id del item al que corresponden.
+</p>
+</body>
+</html>

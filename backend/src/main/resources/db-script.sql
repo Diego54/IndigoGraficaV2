@@ -30,4 +30,13 @@ INSERT INTO roles(name) VALUES('ROLE_USER');
 INSERT INTO roles(name) VALUES('ROLE_MODERATOR');
 INSERT INTO roles(name) VALUES('ROLE_ADMIN');
 
+CREATE TABLE `indigo_grafica`.`person` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(45) NULL,
+  `last_name` VARCHAR(45) NULL,
+  `birthdate` DATE NULL,
+  `cuit` BIGINT NULL,
+  `email` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`));
+
 select * from users;
